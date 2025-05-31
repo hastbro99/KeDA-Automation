@@ -1,4 +1,4 @@
-const { Builder, By } = require("selenium-webdriver")
+const { Builder, By, until } = require("selenium-webdriver")
 
 driver = new Builder().forBrowser('firefox').setFirefoxOptions().build()
 async function login(email, pass) {
@@ -7,8 +7,12 @@ async function login(email, pass) {
     await driver.get(url)
     await driver.manage().window().maximize()
     await driver.sleep(2000);
-    await driver.findElement(By.name('login')).sendKeys(email);
+    await driver.findElement(By.xpath("//a[contains(text(),'uptech_1')]")).click();
+    await driver.sleep(6000);
+    await driver.findElement(By.id('login')).sendKeys(email);
+    await driver.sleep(2000);
     await driver.findElement(By.name('password')).sendKeys(pass);
+    await driver.sleep(1000);
     await driver.findElement(By.xpath("//button[contains(text(),'Log in')]")).click();
     await driver.sleep(2000);
 }
