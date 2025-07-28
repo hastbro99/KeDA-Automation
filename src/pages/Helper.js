@@ -29,6 +29,16 @@ async function fieldInputTimeOffTypesNameAndAlloReq(name, allocationReq) {
     await driver.findElement(By.xpath(`//label[@class='form-check-label o_form_label' and normalize-space(text())='${allocationReq}']`)).click() // check allocation request
 }
 
+async function fieldInputTimeOffEmployee() {
+    await driver.sleep(2000)
+    await driver.findElement(By.xpath("//input[@id='request_date_from_2']").click())
+    // await driver.sleep(1000)
+    // await driver.findElement(By.xpath("//button[@title='Select month']")).click() // input from date
+    // await driver.sleep(1000)
+    // await driver.findElement(By.xpath(`//button[span[contains(text(),'${fromMonth}')]]`)).click()
+    // await driver.sleep(1000)
+}
+
 async function fieldInputDateManagementAllocation(fromMonth, fromDate, toMonth, toDate) {
     await driver.findElement(By.xpath("//button[@title='Select month']")).click() // input from date
     await driver.sleep(1000)
@@ -113,4 +123,5 @@ module.exports = {
     fieldInputDateMandatoryDays: fieldInputDateMandatoryDays,
     fieldInputDateCollectiveHollidays: fieldInputDateCollectiveHollidays,
     fieldInputDateManagementAllocation: fieldInputDateManagementAllocation,
+    fieldInputTimeOffEmployee: fieldInputTimeOffEmployee
 }

@@ -8,7 +8,7 @@ async function login(email, pass) {
     await driver.manage().window().maximize()
     await driver.sleep(2000);
     await driver.findElement(By.xpath("//a[contains(text(),'uptech_1')]")).click();
-    await driver.sleep(6000);
+    await driver.sleep(2000);
     await driver.findElement(By.id('login')).sendKeys(email);
     await driver.sleep(2000);
     await driver.findElement(By.name('password')).sendKeys(pass);
